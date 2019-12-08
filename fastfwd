@@ -1,0 +1,9 @@
+from microbit import*
+
+#move left motor foward 75%
+pin0.write_analog(770)
+pin8.write_digital(0) #direction pin set to low =0
+
+#move right motor forward
+pin1.write_analog(770)
+pin12.write_digital(0) #direction pin set to low =0 
