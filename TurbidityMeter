@@ -1,0 +1,38 @@
+int sensorReading;
+
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(9600);
+  pinMode(6, OUTPUT);
+  pinMode(7, OUTPUT);
+  pinMode(8, OUTPUT);
+}
+
+void loop() {
+  sensorReading = analogRead(0);
+
+  //Lots of scattered light - very dirty - red light
+  if(sensorReading >= 600) {
+    digitalWrite(8,HIGH);
+  } else {
+    digitalWrite(8,LOW);
+  }
+
+  //A bit of scattered light - kind of dirty - yellow light
+  if(sensorReading >= 500 and sensorReading < 600) {
+    digitalWrite(7,HIGH);
+  } else {
+    digitalWrite(7,LOW);
+  }
+
+  //A little scattered light - pretty clean - green light
+  if(sensorReading < 500) {
+    digitalWrite(6,HIGH);
+  } else {
+    digitalWrite(6,LOW);
+  }
+
+ 
+  Serial.println(sensorReading);
+  delay(50);
+}
